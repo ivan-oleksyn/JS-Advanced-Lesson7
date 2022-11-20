@@ -1,0 +1,34 @@
+@import '../../shared/styles/variables';
+@import '../../shared/styles/mixins';
+
+.left-block{
+    width: 18%;
+    .logo{
+        display: flex;
+        align-items: center;
+        width: 250px;
+        height: 40px;
+        border-radius: 5px;
+        color: #fefefe;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+.right-block{
+    width: 80%;
+    .add-btn{
+        color:#fefefe;
+    }
+    .table{
+        .button{
+            @include control-buttons;
+        }
+        .edit-button{
+            width: 50px;
+        }
+        .delete-button{
+            width: 70px;
+        }
+    }
+    
+}

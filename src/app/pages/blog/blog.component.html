@@ -1,0 +1,10 @@
+<div class="container-fluid d-flex flex-wrap justify-content-start mt-3">
+  <div class="card card-item" *ngFor = "let post of userPosts">
+    <img src="/assets/Front-end.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="posted-by">{{ post.author }}</p>
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text mt-3">{{ post.description }}</p>
+    </div>
+  </div>
+</div>

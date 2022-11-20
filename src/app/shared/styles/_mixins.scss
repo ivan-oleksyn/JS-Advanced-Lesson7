@@ -1,0 +1,13 @@
+@import '../styles/variables';
+
+@mixin cadr-hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@mixin control-buttons {
+    border-style: none;
+    border-radius: 5px;
+    color: #fefefe;
+    height: 40px;
+}

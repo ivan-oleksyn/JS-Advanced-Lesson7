@@ -1,0 +1,52 @@
+<div class="container-fluid d-flex justify-content-between mt-3">
+    <div class="left-block">
+        <div class="logo bg-dark">Blogs</div>
+    </div>
+    <div class="right-block">
+        <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="title here..." 
+              [(ngModel)]="postTitle" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="mb-3">
+              <textarea  class="form-control" placeholder="text here..."
+              [(ngModel)]="postDescription" [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="author here..."
+                [(ngModel)]="postAuthor" [ngModelOptions]="{standalone: true}">
+            </div>
+            <button type="submit" class="btn add-btn bg-dark" *ngIf="!editActive" (click)="addPost()">Add</button>
+            <button type="submit" class="btn bg-light" *ngIf="editActive" (click)="savePost()">Save edit</button>
+        </form>
+        <table class="table mt-4">
+            <thead>
+              <tr >
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Text</th>
+                <th scope="col">Author</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let post of blogPosts'>
+                <th scope="row">{{ post.id }}</th>
+                <td>{{ post.title }}</td>
+                <td>
+                    {{ post.description | slice:0:30 }}
+                    <span *ngIf="post.description.length > 30">...</span>
+                </td>
+                <td>{{ post.author }}</td>
+                <td>
+                    <button class="edit-button button bg-dark" (click)="editPost(post)">Edit</button>
+                </td>
+                <td>
+                    <button class="delete-button button bg-dark" (click)="deletePost(post)" [disabled]="editActive">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
